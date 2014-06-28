@@ -1,0 +1,20 @@
+<div class = "jumbotron">
+  <div class = "row">
+    <div class= "col-md-4"> 
+      <img src="http://c.hub.aa.com/issueimages/large/19985.jpg" width="300" height="300">
+    </div>
+    <div class ="col-xs-12 col-md-8">
+      <div class = "home-btns">
+        <h2> App Name</h2>
+        <!-- if current user -->
+          <h3> Welcome %current user email%! </h3> 
+          <%= link_to "Bookmarks", "#", class: 'btn btn-success
+          btn-lg'%>
+        <!-- else -->
+            <%= link_to "Sign In", "#", class: 'btn btn-success btn-lg' %> or 
+            <%= link_to "Sign Up", "#", class: "btn btn-info btn-lg" %>
+          <!-- end -->
+
+      </div>
+    </div>
+  </div>

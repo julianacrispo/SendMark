@@ -1,14 +1,83 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>SendMark</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>SendMark</title>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  
+  <body>
+  
+  <!-- Trying a navbar -->
+  <div class="container">
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">SendMark</a>
+      </div>
 
-<%= yield %>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <li><%= link_to "Home", "#" %></li>
+          </li>
+        <!-- if current user -->
+            <li><%= link_to "Index", "#" %></li>
+         <!-- end -->
+        </ul>
+      
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <!-- if current user? -->
+          </li>
+          <li>
+            <%= link_to "Sign out", "#", method: :delete %>
+          </li>
+          <li>
+        <!-- else --> 
+               <%= link_to "Sign In", "#" %> 
+          </li>
+          <li>
+               <%= link_to "Sign Up", "#" %>
+          </li>
+           <!-- end -->
+          </li>
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+     
+     <% if flash[:notice] %>
+          <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= flash[:notice] %>
+          </div>
+        <% elsif flash[:error] %>
+          <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= flash[:error] %>
+          </div>
+        <% elsif flash[:alert] %>
+          <div class="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
 
-</body>
+      <%= yield %>
+
+  </div>  <!-- container end -->
+
+  </body>
 </html>
+
