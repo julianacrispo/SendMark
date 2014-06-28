@@ -30,26 +30,26 @@
           <li class="active">
             <li><%= link_to "Home", "#" %></li>
           </li>
-        <!-- if current user -->
+        <% if current_user %>
             <li><%= link_to "Index", "#" %></li>
-         <!-- end -->
+         <% end %>
         </ul>
       
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <!-- if current user? -->
+            <% if current_user %>
           </li>
           <li>
-            <%= link_to "Sign out", "#", method: :delete %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
           </li>
           <li>
-        <!-- else --> 
-               <%= link_to "Sign In", "#" %> 
+        <% else %>
+               <%= link_to "Sign In", new_user_session_path %> 
           </li>
           <li>
-               <%= link_to "Sign Up", "#" %>
+               <%= link_to "Sign Up", new_user_registration_path %>
           </li>
-           <!-- end -->
+           <% end %>
           </li>
           
         </ul>

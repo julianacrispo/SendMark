@@ -6,14 +6,14 @@
     <div class ="col-xs-12 col-md-8">
       <div class = "home-btns">
         <h2> App Name</h2>
-        <!-- if current user -->
-          <h3> Welcome %current user email%! </h3> 
+        <% if current_user %>
+          <h3> Welcome <%= current_user.name %> </h3> 
           <%= link_to "Bookmarks", "#", class: 'btn btn-success
           btn-lg'%>
-        <!-- else -->
-            <%= link_to "Sign In", "#", class: 'btn btn-success btn-lg' %> or 
-            <%= link_to "Sign Up", "#", class: "btn btn-info btn-lg" %>
-          <!-- end -->
+        <% else %>
+            <%= link_to "Sign In", new_user_session_path, class: 'btn btn-success btn-lg' %> or 
+            <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-info btn-lg" %>
+          <% end %>
 
       </div>
     </div>
