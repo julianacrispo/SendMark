@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'topics/index'
+
+  get 'bookmarks/index'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
 
