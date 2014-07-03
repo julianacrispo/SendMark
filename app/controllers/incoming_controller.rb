@@ -9,15 +9,14 @@ class IncomingController < ApplicationController
   end
 
   def create
-    @topic = @Topic.new(
-    category: params[:subject])
-    @new_topic.save
+    # @topic = @Topic.new(
+    # category: params[:subject])
+    # @new_topic.save
     head 200
   end
 end
 
 
-puts "INCOMING PARAMS HERE: #{params}"
 
 
 #psuedocode
