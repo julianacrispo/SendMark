@@ -4,19 +4,24 @@ class IncomingController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:create]
 
   def index 
-    puts "INCOMING PARAMS HERE: #{params}"
+    @topic = Topic.new
 
   end
 
   def create
-    # Take a look at these in your server logs
-    # to get a sense of what you're dealing with.
-    puts "INCOMING PARAMS HERE: #{params}"
-
-    # You put the message-splitting and business
-    # magic here. 
-
-    # Assuming all went well. 
+    @topic = @Topic.new(
+    category: params[:subject])
+    @new_topic.save
     head 200
   end
 end
+
+
+puts "INCOMING PARAMS HERE: #{params}"
+
+
+#psuedocode
+# @new_bookmark = Bookmark.new (
+# link: params[:text],
+# title: params[:subject])
+# @new_bookmark.save
