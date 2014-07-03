@@ -1,1 +1,1 @@
-## Sendmark: Users can add URLs they want to bookmark to the body of an email and send it a SendMark's email address with a hashtag like #inspirational in the subject line. SendMark saves the bookmark for you and adds it to an index where other users can find it.
+Sendmark: Users can add URLs they want to bookmark to the body of an email and send it a SendMark's email address with a hashtag like #inspirational in the subject line. SendMark saves the bookmark for you and adds it to an index where other users can find it.

@@ -12,7 +12,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 end
-
 ####note changed, 
 
 #class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController

@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
-  devise_scope :user do
-  get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-end
+#   devise_scope :user do
+#   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+# end
 
 end
