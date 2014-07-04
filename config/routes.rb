@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   post :incoming, to: 'incoming#create'
   get 'incoming/index'
+  
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
