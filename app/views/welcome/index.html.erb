@@ -8,7 +8,7 @@
         <h2> App Name</h2>
         <% if current_user %>
           <h3> Welcome <%= current_user.name %> </h3> 
-          <%= link_to "Bookmarks", "#", class: 'btn btn-success
+          <%= link_to "Categories", topics_path, class: 'btn btn-success
           btn-lg'%>
         <% else %>
             <%= link_to "Sign In", new_user_session_path, class: 'btn btn-success btn-lg' %> or 

@@ -1,0 +1,7 @@
+
+<h3>Topic Category : <%= @topic.category %></h3>
+<h4> Bookmarks </h4>
+  <% @bookmarks.each do |bookmark| %>
+      <li> <%= link_to bookmark.url, [@topic, bookmark] %> submitted <%= time_ago_in_words(bookmark.created_at) %> ago by <%= bookmark.user.email %> </li>
+     
+  <% end %>
