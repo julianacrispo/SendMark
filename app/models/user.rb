@@ -4,7 +4,11 @@ class User < ActiveRecord::Base
         :omniauth_providers => [:facebook]
 
   has_many :bookmarks
-  has_many :likes
+  has_many :likes, dependent: :destroy
+
+  def liked(bookmark)
+    self.likes.where(bookmark_id: bookmark.id).first
+  end
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|

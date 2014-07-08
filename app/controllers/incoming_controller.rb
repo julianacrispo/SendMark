@@ -11,7 +11,8 @@ class IncomingController < ApplicationController
     def create
     # Take a look at these in your server logs
     # to get a sense of what you're dealing with.
-    puts "INCOMING PARAMS HERE: #{params}"
+    logger.info "!!!!!!!!!!!!!!!!"
+    logger.info "INCOMING PARAMS HERE: #{params}"
     @topic = @Topic.new(
       category: params[:subject])
       @new_topic.save
