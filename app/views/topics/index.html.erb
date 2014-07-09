@@ -5,11 +5,10 @@
       <ul> 
         <li> 
           <%= link_to topic.category, topic %> 
-          <%= topic.bookmarks.count %> bookmarks
-      </li>
-    </ul>
-
-
+          <span class="badge"><%= topic.bookmarks.count %></span>  
+        </li>
+      </ul>
     <% end %>
    
+
 

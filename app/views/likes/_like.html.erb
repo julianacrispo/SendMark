@@ -1,11 +1,11 @@
-<% if like = current_user.liked(bookmark) %>
+
+
+    <% if like = current_user.liked(bookmark) %>
       <%= link_to [topic, bookmark, like], class: 'btn-group btn-group-xs', method: :delete do %>
-        <i class="glyphicon glyphicon-thumbs-up"> </i>&nbsp; Unfavorite
+        <i class="glyphicon glyphicon-thumbs-up"> </i>&nbsp; Unlike
       <% end %>
     <% else %>
-      <%= form_for [topic, bookmark, Like.new] do |f| %>
-        <%= button_tag type: 'submit', class: 'btn-group btn-group-xs' do %>
-          <span class="glyphicon glyphicon-thumbs-down"></span> Favorite
+      <%= link_to [topic, bookmark, Like.new], class: 'btn-group btn-group-xs', method: :submit do %>
+          <i class="glyphicon glyphicon-thumbs-down"> </i>&nbsp; Like
         <% end %>
       <% end %>
-    <% end %>
