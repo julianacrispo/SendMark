@@ -2,6 +2,14 @@
 <p>Find me in app/views/topics/index.html.erb</p>
 
     <% @topics.each do |topic| %>
-      <ul> <li> <%= link_to topic.category, topic %> </li></ul>
+      <ul> 
+        <li> 
+          <%= link_to topic.category, topic %> 
+          <%= topic.bookmarks.count %> bookmarks
+      </li>
+    </ul>
+
+
     <% end %>
    
+

@@ -1,6 +1,21 @@
 class UsersController < ApplicationController
    # POST /users
   # POST /users.json
+
+  def show
+    @user = User.find(params[:id])
+    @bookmarks = @user.bookmarks(current_user)
+  end
+
+  def update
+    if current_user.update_attributes(user_params)
+      flash[:notice] = "User information updated"
+      redirect_to edit_user_registration_path(current_user)
+    else
+      render "devise/registrations/edit"
+    end
+  end
+
   def create
     @user = User.new(params[:user])
  
@@ -17,5 +32,12 @@ class UsersController < ApplicationController
       end
     end
   end
-end
+
+  private
+
+    def user_params
+      params.require(:user).permit(:email)
+    end
+  end
+
 
