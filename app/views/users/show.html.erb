@@ -7,15 +7,20 @@
     </ul>
     <div class="tab-content">
       <div class="tab-pane active" id="posts">
-       <% if current_user %>
         <% @bookmarks.each do |bookmark| %>
-          <li> display current user bookmarks by topic </li>
+          <% if bookmark.user_id == current_user.id %>
+          <li> <%= link_to bookmark.url %> submitted <%= time_ago_in_words(bookmark.created_at) %> ago by <%= bookmark.user.email %> </li>
+         <% end %>
         <% end %>
-       <% end %>
       </div>
       <div class="tab-pane" id="comments">
-        something
+      <% @bookmarks.each do |bookmark| %>
+        <% if @user.likes(bookmark) %>
+        <li> <%= link_to bookmark.url %>  </li>
+        <% end %>
+      <% end %> 
       </div>
     </div>
   </div>
 </div>
+

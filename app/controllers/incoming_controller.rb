@@ -5,7 +5,7 @@ class IncomingController < ApplicationController
 
     def index
       puts "INCOMING PARAMS HERE: #{params}"
-
+      head 200
     end
 
     def create
