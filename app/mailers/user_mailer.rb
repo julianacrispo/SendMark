@@ -1,7 +1,6 @@
 class UserMailer < ActionMailer::Base
   default from: "julianacrispo@gmail.com"
 
-def 
 
 #test
   def welcome_email(user)
