@@ -13,9 +13,26 @@ class IncomingController < ApplicationController
     # to get a sense of what you're dealing with.
     logger.info "!!!!!!!!!!!!!!!!"
     logger.info "INCOMING PARAMS HERE: #{params}"
-    @topic = @Topic.new(
-      category: params[:subject])
-      @new_topic.save
+
+    # get topic based on subject
+      # find existing topic
+      # else create new one
+
+    # create bookmark based on body
+    # assign topic and current_user to bookmark
+
+    user = User.find_by_email params[:sender]
+
+    category = params[:subject] #todo: extract hashtag from subject
+    topic = Topic.find_by_category( category )
+    if topic.nil?
+      @topic = Topic.new(category: category)
+      topic.save
+    end
+    @bookmark = Bookmark.new( url: params[:body] )
+    @bookmark.topic = topic
+    @bookmark.user = user
+    @bookmark.save
 
     # You put the message-splitting and business
     # magic here. 
