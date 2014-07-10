@@ -26,7 +26,7 @@ class IncomingController < ApplicationController
     category = params[:subject] #todo: extract hashtag from subject
     topic = Topic.find_by_category( category )
     if topic.nil?
-      @topic = Topic.new(category: category)
+      topic = Topic.new(category: category)
       topic.save
     end
     @bookmark = Bookmark.new( url: params[:body] )
