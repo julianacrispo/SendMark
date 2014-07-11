@@ -10,7 +10,9 @@ end
 
 
   post :incoming, to: 'incoming#create' 
+  post :incoming, to: 'incoming#index' 
   get 'incoming/index'
+
 
   get 'welcome/index'
 
