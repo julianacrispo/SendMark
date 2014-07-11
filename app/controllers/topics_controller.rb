@@ -3,6 +3,10 @@ class TopicsController < ApplicationController
     @topics = Topic.all
   end
 
+  def create
+
+  end
+  
   def show
     @topic = Topic.find(params[:id])
     @bookmarks = @topic.bookmarks
