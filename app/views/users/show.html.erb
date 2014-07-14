@@ -14,10 +14,8 @@
         <% end %>
       </div>
       <div class="tab-pane" id="comments">
-      <% @bookmarks.each do |bookmark| %>
-        <% if @user.likes(bookmark) %>
+      <% @liked.each do |bookmark| %>
         <li> <%= link_to bookmark.url %>  </li>
-        <% end %>
       <% end %> 
       </div>
     </div>

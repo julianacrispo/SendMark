@@ -3,18 +3,19 @@ class IncomingController < ApplicationController
   # http://stackoverflow.com/questions/1177863/how-do-i-ignore-the-authenticity-token-for-specific-actions-in-rails
   skip_before_filter :verify_authenticity_token, only: [:create, :index]
 
-    def index
-      puts "INCOMING PARAMS HERE: #{params}"
-      head 200
-    end
+  def index
+    puts "INCOMING PARAMS HERE: #{params}"
+    head 200
+  end
 
-    def create
-      puts "INCOMING PARAMS HERE: #{params}"
+  def create
+    puts "INCOMING PARAMS HERE: #{params}"
     user = User.find_by_email params[:sender]
+    # user ||= User.create email: params[:sender], password: 'secret', password_confirmation: 'secret'
 
     category = params[:subject] #todo: extract hashtag from subject
     #if category contains # do the below, else just move onto parsing the body of the email
-    category.split("#").last.split(" ").first
+    category = category.split("#").last.split(" ").first
       topic = Topic.find_by_category( category )
         if topic.nil?
           topic = Topic.new(category: category)

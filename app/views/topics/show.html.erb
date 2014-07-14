@@ -7,7 +7,7 @@
   <% @bookmarks.each do |bookmark| %>
       
       <li> 
-        <%= link_to bookmark.url, [@topic, bookmark] %> submitted <%= time_ago_in_words(bookmark.created_at) %> ago by <%= bookmark.user.email %> 
+        <%= link_to bookmark.url, [@topic, bookmark] %> submitted <%= time_ago_in_words(bookmark.created_at) %> ago by <%= bookmark.user ? bookmark.user.email : 'Anonymous' %> 
       <%= render partial: 'likes/like', locals: { topic: @topic, bookmark: bookmark } %>
     </li>
 
