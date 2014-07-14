@@ -11,6 +11,7 @@ end
 
   post :incoming, to: 'incoming#create' 
   post :incoming, to: 'incoming#index' 
+  post "incoming/index"
   get 'incoming/index'
 
 
