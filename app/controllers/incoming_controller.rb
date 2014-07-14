@@ -9,24 +9,24 @@ class IncomingController < ApplicationController
     end
 
     def create
-    logger.info "!!!!!!!!!!!!!!!!"
-    logger.info "INCOMING PARAMS HERE: #{params}"
-
+      puts "INCOMING PARAMS HERE: #{params}"
     user = User.find_by_email params[:sender]
 
     category = params[:subject] #todo: extract hashtag from subject
-    topic = Topic.find_by_category( category )
-    if topic.nil?
-      topic = Topic.new(category: category)
-      topic.save
-    end
+    #if category contains # do the below, else just move onto parsing the body of the email
+    category.split("#").last.split(" ").first
+      topic = Topic.find_by_category( category )
+        if topic.nil?
+          topic = Topic.new(category: category)
+          topic.save
+        end
     @bookmark = Bookmark.new( url: params[:body] )
     @bookmark.topic = topic
     @bookmark.user = user
     @bookmark.save
     head 200
   end
-
+end
 #   def post
 #      # process various message parameters:
 #      sender  = params['from']
