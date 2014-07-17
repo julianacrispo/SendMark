@@ -21,6 +21,7 @@ class IncomingController < ApplicationController
           topic = Topic.new(category: category)
           topic.save
         end
+    url = params[:body]
     @bookmark = Bookmark.new( url: params[:body] )
     @bookmark.topic = topic
     @bookmark.user = user
