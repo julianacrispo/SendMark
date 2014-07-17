@@ -7,10 +7,10 @@ class LikesController < ApplicationController
 
     if like.save
       flash[:notice] = "Liked bookmark"
-      redirect_to [@topic]
+      redirect_to [@topic, @bookmark]
     else
       flash[:error] = "Unable to Like. Please try again"
-      redirect_to [@topic]
+      redirect_to [@topic, @bookmark]
     end
   end
 

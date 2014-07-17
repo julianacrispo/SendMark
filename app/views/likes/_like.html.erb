@@ -1,5 +1,4 @@
-
-
+<% if current_user %>
     <% if like = current_user.liked(bookmark) %>
       <%= link_to [topic, bookmark, like], class: 'btn-group btn-group-xs', method: :delete do %>
         <i class="glyphicon glyphicon-thumbs-up"> </i>&nbsp; Unlike
@@ -9,3 +8,7 @@
           <i class="glyphicon glyphicon-thumbs-down"> </i>&nbsp; Like
         <% end %>
       <% end %>
+      <% else %>
+      <small> (Sign in/sign up to like and save link) </small>
+    <% end %>
+
